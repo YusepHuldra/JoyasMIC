@@ -1,0 +1,64 @@
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+
+<footer id="contacto">
+    <div class="social-container">
+        <p style="color: #64748b; margin-bottom: 1rem; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase;">Síguenos en nuestras redes</p>
+        <a href="https://www.facebook.com/profile.php?id=61586415724068&locale=es_LA" target="_blank" rel="noopener" class="social-link facebook">Facebook</a>
+        <a href="https://www.instagram.com/joyasmic/" target="_blank" rel="noopener" class="social-link instagram">Instagram</a>
+    </div>
+    <p>&copy; 2026 Joyas Mic - Catálogo Digital de Exhibición. Todos los derechos reservados.</p>
+    <c:choose>
+        <c:when test="${sessionScope.usuario.admin}">
+            <a class="btn-toggle-admin" href="${ctx}/admin">Acceso Administrador</a>
+        </c:when>
+        <c:otherwise>
+            <button type="button" class="btn-toggle-admin" onclick="openCustomerAuthModal('login')">Acceso Administrador</button>
+        </c:otherwise>
+    </c:choose>
+</footer>
+
+<%-- Único JavaScript que queda: abrir/cerrar modal y carrito (la lógica ya vive en el servidor) --%>
+<script>
+(function () {
+    var logueado = ${not empty sessionScope.usuario};
+    var $ = function (id) { return document.getElementById(id); };
+    var authOverlay = $('user-auth-overlay');
+    var cartSidebar = $('cart-sidebar');
+    var cartOverlay = $('cart-overlay');
+
+    function setCart(abierto) {
+        cartSidebar.classList.toggle('open', abierto);
+        cartOverlay.classList.toggle('open', abierto);
+    }
+
+    window.switchAuthTab = function (modo) {
+        var login = modo === 'login';
+        $('tab-user-login-btn').classList.toggle('active', login);
+        $('tab-user-register-btn').classList.toggle('active', !login);
+        $('user-login-form').style.display = login ? 'block' : 'none';
+        $('user-register-form').style.display = login ? 'none' : 'block';
+    };
+    window.openCustomerAuthModal = function (modo) {
+        authOverlay.classList.add('open');
+        window.switchAuthTab(modo || 'login');
+    };
+
+    $('close-user-auth-btn').addEventListener('click', function () { authOverlay.classList.remove('open'); });
+    $('open-cart-btn').addEventListener('click', function () {
+        if (!logueado) { window.openCustomerAuthModal('login'); return; }
+        setCart(!cartSidebar.classList.contains('open'));
+    });
+    $('close-cart-btn').addEventListener('click', function () { setCart(false); });
+    cartOverlay.addEventListener('click', function () { setCart(false); });
+
+    <c:if test="${not empty sessionScope.abrirModal}">window.openCustomerAuthModal('${sessionScope.abrirModal}');</c:if>
+    <c:if test="${sessionScope.abrirCarrito}">setCart(true);</c:if>
+
+    var flash = $('flash-msg');
+    if (flash) { setTimeout(function () { flash.style.display = 'none'; }, 5000); }
+})();
+</script>
+<c:remove var="abrirModal" scope="session"/>
+<c:remove var="abrirCarrito" scope="session"/>

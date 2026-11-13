@@ -1,0 +1,15 @@
+# --- Base de datos (XAMPP / MariaDB) ---
+db.url=jdbc:mariadb://localhost:3306/joyas_mic
+db.user=root
+db.password=
+
+# --- Administrador inicial (se crea solo al arrancar si no existe) ---
+admin.email=admin@joyasmic.com
+admin.nombre=ADMINISTRADOR
+admin.password=CAMBIAME
+
+# --- WhatsApp (formato internacional, sin +; para México normalmente 52 + 10 dígitos) ---
+whatsapp.numero=528147897165
+
+# --- Carpeta donde se guardan las imágenes que sube el admin (vacío = ~/joyasmic-uploads) ---
+uploads.dir=
