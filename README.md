@@ -99,7 +99,7 @@ flowchart LR
 
 2. **Registro / inicio de sesión:** desde **Iniciar Sesión / Registrarse** se abre una ventana con dos pestañas. Si hay un error de validación, el mensaje aparece en la parte superior.
 
-   ![Registro e inicio de sesión](apturas_programa/RegistroInicio.jpeg)
+   ![Registro e inicio de sesión](apturas_programa/Registro/Inicio.jpeg)
 
 3. **Carrito:** con la sesión iniciada, el botón **Agregar al Carrito** abre el panel lateral con las piezas, las cantidades (+ / −) y el total.
 
