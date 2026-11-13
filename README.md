@@ -95,19 +95,19 @@ flowchart LR
 ### Flujo del cliente
 1. **Catálogo:** al abrir la aplicación se muestra el catálogo con las piezas disponibles. Las pestañas superiores filtran por categoría.
 
-   ![Catálogo](docs/capturas/01-catalogo.png)
+   ![Catálogo](capturas_programa/Catalogo.jpeg)
 
 2. **Registro / inicio de sesión:** desde **Iniciar Sesión / Registrarse** se abre una ventana con dos pestañas. Si hay un error de validación, el mensaje aparece en la parte superior.
 
-   ![Registro e inicio de sesión](docs/capturas/02-login-registro.png)
+   ![Registro e inicio de sesión](apturas_programa/RegistroInicio.jpeg)
 
 3. **Carrito:** con la sesión iniciada, el botón **Agregar al Carrito** abre el panel lateral con las piezas, las cantidades (+ / −) y el total.
 
-   ![Carrito](docs/capturas/03-carrito.png)
+   ![Carrito](capturas_programa/Carrito.jpeg)
 
 4. **Pedido:** el botón **Pedir por WhatsApp** abre una conversación con el mensaje del pedido ya armado.
 
-   ![Pedido por WhatsApp](docs/capturas/04-whatsapp.png)
+   ![Pedido por WhatsApp](capturas_programa/MensajeWhatsApp.jpeg)
 
 ### Flujo del administrador
 1. Inicia sesión con una cuenta de rol administrador (ventana de inicio de sesión del catálogo).
@@ -115,7 +115,7 @@ flowchart LR
 3. **Publicar pieza:** completa el formulario (categoría, título, precio, descripción, imagen) y pulsa **Publicar en Catálogo**.
 4. **Eliminar pieza:** desde la tabla del panel, o desde el botón **Eliminar** que ve sobre cada tarjeta del catálogo.
 
-   ![Panel de administración](docs/capturas/05-panel-admin.png)
+   ![Panel de administración](capturas_programa/PanelAdmin.jpeg)
 
 ### Mapa de rutas
 | Ruta | Método | Descripción | Acceso |
